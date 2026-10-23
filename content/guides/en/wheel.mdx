@@ -1,0 +1,77 @@
+---
+title: The wheel
+description: Drag a file and tap Shift, Ctrl or Alt. Or use the keyboard, or the floating drop pad.
+group: basics
+order: 2
+---
+
+The wheel is PomeloO's main door. It opens right where your cursor is, shows only what makes sense for the
+file you're holding, and closes as soon as you've picked something.
+
+<Demo name="wheel" />
+
+## Three keys, three wheels
+
+While you drag a file (or several) in Explorer or on the desktop, tap one key:
+
+| Tap | Wheel | For example |
+|---|---|---|
+| <Keys k="Shift" /> | **Convert** | HEIC → JPG, MKV → MP4, DOCX → PDF |
+| <Keys k="Ctrl" /> | **Tools** | Compress, Crop, Trim, Watermark, Copy text |
+| <Keys k="Alt" /> | **Actions** | Share, Move, Rename, Send to Phone (also for folders) |
+
+<Screenshot src="wheel-convert-jpg" alt="The convert wheel for a JPG photo" caption="Convert wheel for a photo: the source format is never offered." />
+
+<Steps>
+  <Step title="Start dragging">Hold the left mouse button on a file and move a little.</Step>
+  <Step title="Tap the key, don't hold it">A quick tap is enough. The wheel opens under the cursor.</Step>
+  <Step title="Drop on a segment">The segment you're over lights up orange. Let go to run it.</Step>
+</Steps>
+
+The result is saved next to the original: `photo.webp`, `photo Compressed.jpg`, or `photo 2.webp` if the name
+is already taken. Progress shows in the notch (or a small orange window), and a notice tells you when it's done.
+
+<Tip>
+  Want a different key per wheel? Settings → **Wheel keys** lets you swap Shift, Ctrl and Alt around.
+</Tip>
+
+## Tools and actions
+
+<Screenshot src="wheel-tools-jpg" alt="The tools wheel for a photo" caption="Ctrl: the tools wheel. Tools with options open a small window first." />
+
+Tools that need settings (Compress, Crop, Watermark…) open a window with a live preview. Press **Enter** or
+the orange button to run, **Esc** to cancel.
+
+<Screenshot src="wheel-actions-jpg" alt="The actions wheel" caption="Alt: actions work on any file, folder or mixed selection." />
+
+## Several files at once
+
+Select several files, then drag them together. Per-file tools run on each file. "Combine" tools make one result
+from the whole selection: **Merge PDFs**, **Create PDF** from photos, **Collage**, **Join Videos**.
+
+## Without dragging: the keyboard
+
+<Steps>
+  <Step title="Select files in Explorer">Click one, or Ctrl+click several.</Step>
+  <Step title="Press Ctrl+Shift+Space">
+    The wheel opens with keyboard control: arrow keys to move, <Keys k="Enter" /> to run, <Keys k="Esc" /> to close.
+  </Step>
+</Steps>
+
+<Note>
+  Nothing selected? <Keys k="Ctrl+Shift+Space" /> uses what you copied instead: copied files, a copied image or
+  copied text. The shortcut can be changed in Settings → **Keyboard**.
+</Note>
+
+## The floating drop pad
+
+Prefer a target to drop on? Turn on **Show drop pad** in the tray menu (or Settings → Floating drop pad). A
+small pad sits in the corner of the screen; drop files on it and the wheel opens around it.
+
+## Nothing happens?
+
+- Make sure PomeloO is running: the orange icon in the tray.
+- Settings → **Wheel while dragging** must be on.
+- Tap the key while the mouse button is still held down.
+- Dragging inside some apps (not Explorer) may not work; use the keyboard shortcut or the
+  [right-click menu](../right-click-menu/) there.

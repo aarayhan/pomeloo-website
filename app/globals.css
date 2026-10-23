@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* PomeloO brand: the logo's pink → orange → amber, on near-black (dark, the default) or cream (light) */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-lexend), var(--font-inter), ui-sans-serif, sans-serif;
+  --color-pink: #f0526a;
+  --color-orange: #ff8a1e;
+  --color-amber: #ffb020;
+  --color-cream: #fdf0dc;
+  --color-ink: #1e1e1e;
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-line: var(--line);
+}
+
+:root {
+  --bg: #fffaf3;
+  --fg: #1e1e1e;
+  --muted: #5f5a54;
+  --card: #ffffff;
+  --line: #ecdfcc;
+}
+.dark {
+  --bg: #0b0b0c;
+  --fg: #f4f4f5;
+  --muted: #a1a1aa;
+  --card: #151517;
+  --line: #27272a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@utility text-gradient {
+  background: linear-gradient(90deg, var(--color-pink), var(--color-orange) 55%, var(--color-amber));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility bg-gradient {
+  background: linear-gradient(90deg, var(--color-pink), var(--color-orange) 55%, var(--color-amber));
+}
+
+/* guide prose (MDX): direct children only, so demos and components inside keep their own styles */
+.prose {
+  line-height: 1.75;
+}
+.prose > h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+  scroll-margin-top: 5rem;
+}
+.prose > h3 {
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 1.75rem 0 0.5rem;
+}
+.prose > p,
+.prose > ul,
+.prose > ol {
+  margin: 0.75rem 0;
+}
+.prose > ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.prose > ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+.prose a {
+  color: var(--color-orange);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose code {
+  font-size: 0.9em;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.1rem 0.35rem;
+}
+.prose > table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose > table th,
+.prose > table td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.prose strong {
+  font-weight: 600;
+}

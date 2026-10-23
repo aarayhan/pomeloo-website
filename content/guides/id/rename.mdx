@@ -1,0 +1,35 @@
+---
+title: Ganti nama banyak file
+description: Beri nama rapi untuk sekumpulan file dengan penomoran, tanggal foto diambil, atau nama folder.
+group: organize
+order: 14
+---
+
+<Steps>
+  <Step title="Pilih file-file lalu seret">Foto liburan, hasil scan, episode: file apa saja.</Step>
+  <Step title="Ketuk Alt lalu pilih RENAME">Jendela Rename terbuka dengan pratinjau langsung.</Step>
+  <Step title="Ketik pola nama">Klik token untuk menyisipkannya, dan atur angka awalnya.</Step>
+  <Step title="Cek pratinjaunya, lalu Rename">Nama file diganti di tempatnya.</Step>
+</Steps>
+
+<Screenshot src="rename" alt="Jendela Rename dengan pola dan pratinjau" />
+
+## Token
+
+| Token | Menjadi |
+|---|---|
+| `{name}` | Nama yang sekarang |
+| `{n}` | 1, 2, 3… |
+| `{n:02}`, `{n:03}` | 01, 02… atau 001, 002… |
+| `{date}`, `{time}` | Waktu foto atau video diambil |
+| `{folder}` | Nama folder tempat file berada |
+
+Misalnya `{date} {folder} {n:03}` mengubah `IMG_2041.jpg` jadi `2026-08-14 Bali 001.jpg`.
+
+<Tip>Salah ganti nama? Tray → **History** → **Undo** mengembalikan nama lamanya.</Tip>
+
+## Aksi lainnya
+
+Roda <Keys k="Alt" /> juga berisi **Share** (lembar berbagi Windows), **Float** (simpan file di rak notch),
+**Copy** (untuk ditempel di Explorer), **Move** (ke folder pilihanmu), **Copy Path** (satu path per baris),
+**Terminal** (Windows Terminal di folder itu) dan [Send to Phone](../phone/).

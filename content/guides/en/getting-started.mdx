@@ -1,0 +1,61 @@
+---
+title: Install and first conversion
+description: Download PomeloO, get past the SmartScreen warning, and convert your first file in under a minute.
+group: start
+order: 1
+---
+
+PomeloO is a small app that lives in the system tray. There's no main window to open: you use it straight
+from Explorer, while you drag files.
+
+## Install
+
+<Steps>
+  <Step title="Download the installer">
+    Get **PomeloO-Setup-x.y.z.exe** from the [download page](../../download/). It needs Windows 10 (1809 or newer) or
+    Windows 11, 64-bit.
+  </Step>
+  <Step title="Run it">
+    No admin rights are needed. PomeloO installs for your user only, adds a Start menu entry and, if you leave
+    the box ticked, the Explorer right-click menu.
+  </Step>
+  <Step title="&ldquo;Windows protected your PC&rdquo;? Click More info → Run anyway">
+    The installer isn't code-signed yet, so SmartScreen doesn't recognise it. The source code and the build
+    that made it are public on GitHub.
+  </Step>
+  <Step title="Look for the orange icon in the tray">
+    PomeloO starts right away and from now on with Windows. Click the **^** arrow next to the clock if you
+    don't see the icon.
+  </Step>
+</Steps>
+
+<Note>
+  On its first start PomeloO compresses its own folder with Windows' built-in file compression (about 690 MB
+  → 240 MB on disk). It does this quietly in the background, two minutes after launch.
+</Note>
+
+## Your first conversion
+
+<Demo name="wheel" />
+
+<Steps>
+  <Step title="Open a folder with a photo in it">For example your Pictures or Downloads folder.</Step>
+  <Step title="Start dragging the photo">Press and hold the left mouse button on it and move a little.</Step>
+  <Step title="Tap Shift while you're still holding the mouse button">
+    A wheel of formats appears under the cursor.
+  </Step>
+  <Step title="Move onto a format and let go">
+    The converted copy appears next to the original, named like `photo.png`. The original is never changed.
+  </Step>
+</Steps>
+
+<Tip>
+  Changed your mind? Let go anywhere outside the wheel, or press <Keys k="Esc" />. Nothing happens to the file.
+</Tip>
+
+## The tray icon
+
+Right-click the orange icon for **Receive from phone**, **Recipes**, **History** and **Settings**. Everything
+PomeloO does can be tuned in Settings: the keys, the shortcuts, the notch and more.
+
+Next: learn every way to open [the wheel](../wheel/).

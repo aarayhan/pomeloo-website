@@ -1,0 +1,41 @@
+---
+title: Salin teks dari layar
+description: Tekan Win+Ctrl+T lalu seret di atas apa pun untuk menyalin teksnya, bahkan di dalam gambar, video dan PDF hasil scan.
+group: everyday
+order: 7
+---
+
+Teks di screenshot, video yang dijeda, foto papan tulis atau PDF yang terkunci: kalau bisa dilihat, bisa disalin.
+
+<Demo name="ocr" />
+
+<Steps>
+  <Step title="Tekan Win+Ctrl+T">
+    Layar sedikit meredup dan kursor berubah jadi tanda silang. Bisa juga klik **Copy text from screen** di notch.
+  </Step>
+  <Step title="Seret kotak di atas teksnya">Lepaskan, lalu PomeloO membacanya dengan pengenal teks bawaan Windows.</Step>
+  <Step title="Tempel di mana saja">
+    Teksnya sudah di clipboard. Pemberitahuan kecil menunjukkan berapa kata yang disalin.
+  </Step>
+</Steps>
+
+<Screenshot src="ocr-snip" alt="Menyeret kotak di atas teks di layar" />
+
+<Tip>
+  Ada kode QR di dalam kotak? Isinya ikut disalin. Dan kalau kamu baru saja menyalin gambar,
+  <Keys k="Win+Ctrl+T" /> langsung membaca gambar itu, tanpa perlu menyeret.
+</Tip>
+
+## Untuk file: Copy text dan Searchable PDF
+
+Untuk seluruh file, pakai roda tools (<Keys k="Ctrl" /> saat menyeret):
+
+- **Copy Text (OCR)** pada foto atau PDF menaruh semua teksnya di clipboard. Halaman PDF yang sudah punya teks asli
+  dipakai apa adanya; halaman hasil scan dibaca.
+- **Searchable PDF** menambahkan lapisan teks tak terlihat di atas hasil scan dan foto, supaya bisa dicari,
+  dipilih dan disalin di pembaca PDF mana pun.
+
+<Note>
+  PomeloO membaca bahasa yang terpasang di Windows. Untuk menambah: Settings → Time & language → Language & region →
+  Add a language. Tekan <Keys k="Esc" /> untuk membatalkan. Shortcut-nya bisa diubah di Settings → Keyboard.
+</Note>

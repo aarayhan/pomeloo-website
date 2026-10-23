@@ -1,0 +1,35 @@
+---
+title: Rename many files
+description: Give a batch of files tidy names with numbering, the date a photo was taken, or the folder name.
+group: organize
+order: 14
+---
+
+<Steps>
+  <Step title="Select the files and drag them">Holiday photos, scans, episodes: any files.</Step>
+  <Step title="Tap Alt and choose RENAME">The Rename window opens with a live preview.</Step>
+  <Step title="Type a pattern">Click the tokens to insert them, and set the number to start from.</Step>
+  <Step title="Check the preview, then Rename">Files are renamed in place.</Step>
+</Steps>
+
+<Screenshot src="rename" alt="The Rename window with a pattern and a preview" />
+
+## Tokens
+
+| Token | Becomes |
+|---|---|
+| `{name}` | The current name |
+| `{n}` | 1, 2, 3… |
+| `{n:02}`, `{n:03}` | 01, 02… or 001, 002… |
+| `{date}`, `{time}` | When the photo or video was taken |
+| `{folder}` | The name of the folder the files are in |
+
+For example `{date} {folder} {n:03}` turns `IMG_2041.jpg` into `2026-08-14 Bali 001.jpg`.
+
+<Tip>Renamed the wrong files? Tray → **History** → **Undo** puts the old names back.</Tip>
+
+## The other actions
+
+The <Keys k="Alt" /> wheel also has **Share** (Windows share sheet), **Float** (keep files on the notch's shelf),
+**Copy** (to paste in Explorer), **Move** (to a folder you choose), **Copy Path** (one path per line), **Terminal**
+(Windows Terminal at that folder) and [Send to Phone](../phone/).

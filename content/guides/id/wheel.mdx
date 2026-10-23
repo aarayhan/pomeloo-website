@@ -1,0 +1,78 @@
+---
+title: Roda (wheel)
+description: Seret file lalu ketuk Shift, Ctrl atau Alt. Atau pakai keyboard, atau drop pad mengambang.
+group: basics
+order: 2
+---
+
+Roda adalah pintu utama PomeloO. Ia muncul tepat di posisi kursor, hanya menampilkan pilihan yang masuk akal
+untuk file yang kamu pegang, dan langsung menutup setelah kamu memilih.
+
+<Demo name="wheel" />
+
+## Tiga tombol, tiga roda
+
+Saat kamu menyeret file (satu atau beberapa) di Explorer atau desktop, ketuk salah satu tombol:
+
+| Ketuk | Roda | Contoh |
+|---|---|---|
+| <Keys k="Shift" /> | **Convert** | HEIC → JPG, MKV → MP4, DOCX → PDF |
+| <Keys k="Ctrl" /> | **Tools** | Compress, Crop, Trim, Watermark, Copy text |
+| <Keys k="Alt" /> | **Actions** | Share, Move, Rename, Send to Phone (juga untuk folder) |
+
+<Screenshot src="wheel-convert-jpg" alt="Roda convert untuk foto JPG" caption="Roda convert untuk foto: format asalnya tidak pernah ditawarkan." />
+
+<Steps>
+  <Step title="Mulai menyeret">Tahan tombol kiri mouse di atas file lalu gerakkan sedikit.</Step>
+  <Step title="Ketuk tombolnya, jangan ditahan">Ketukan singkat sudah cukup. Roda muncul di bawah kursor.</Step>
+  <Step title="Lepas di salah satu segmen">Segmen yang sedang kamu tunjuk berwarna oranye. Lepaskan untuk menjalankannya.</Step>
+</Steps>
+
+Hasilnya disimpan di sebelah file asli: `photo.webp`, `photo Compressed.jpg`, atau `photo 2.webp` kalau nama itu
+sudah dipakai. Progresnya terlihat di notch (atau jendela oranye kecil), dan ada pemberitahuan saat selesai.
+
+<Tip>
+  Mau tombol yang berbeda untuk tiap roda? Settings → **Wheel keys** bisa menukar Shift, Ctrl dan Alt.
+</Tip>
+
+## Tools dan actions
+
+<Screenshot src="wheel-tools-jpg" alt="Roda tools untuk foto" caption="Ctrl: roda tools. Alat yang punya pilihan membuka jendela kecil dulu." />
+
+Alat yang butuh pengaturan (Compress, Crop, Watermark…) membuka jendela dengan pratinjau langsung. Tekan
+**Enter** atau tombol oranye untuk menjalankan, **Esc** untuk batal.
+
+<Screenshot src="wheel-actions-jpg" alt="Roda actions" caption="Alt: actions bekerja untuk file, folder, atau campuran keduanya." />
+
+## Beberapa file sekaligus
+
+Pilih beberapa file, lalu seret bersamaan. Alat per-file dijalankan pada setiap file. Alat "gabungan" membuat
+satu hasil dari seluruh pilihan: **Merge PDFs**, **Create PDF** dari foto, **Collage**, **Join Videos**.
+
+## Tanpa menyeret: pakai keyboard
+
+<Steps>
+  <Step title="Pilih file di Explorer">Klik satu, atau Ctrl+klik beberapa.</Step>
+  <Step title="Tekan Ctrl+Shift+Space">
+    Roda terbuka dengan kontrol keyboard: tombol panah untuk berpindah, <Keys k="Enter" /> untuk menjalankan,
+    <Keys k="Esc" /> untuk menutup.
+  </Step>
+</Steps>
+
+<Note>
+  Tidak ada yang dipilih? <Keys k="Ctrl+Shift+Space" /> memakai apa yang kamu salin: file, gambar, atau teks
+  yang disalin. Shortcut-nya bisa diubah di Settings → **Keyboard**.
+</Note>
+
+## Drop pad mengambang
+
+Lebih suka punya target untuk menjatuhkan file? Nyalakan **Show drop pad** di menu tray (atau Settings →
+Floating drop pad). Sebuah pad kecil muncul di pojok layar; jatuhkan file di sana dan roda terbuka di sekitarnya.
+
+## Tidak muncul apa-apa?
+
+- Pastikan PomeloO berjalan: ikon oranye di tray.
+- Settings → **Wheel while dragging** harus menyala.
+- Ketuk tombolnya saat tombol mouse masih ditahan.
+- Menyeret di dalam aplikasi tertentu (bukan Explorer) mungkin tidak berfungsi; di sana pakai shortcut
+  keyboard atau [menu klik kanan](../right-click-menu/).

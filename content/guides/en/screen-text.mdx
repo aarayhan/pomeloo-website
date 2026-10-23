@@ -1,0 +1,39 @@
+---
+title: Copy text from the screen
+description: Press Win+Ctrl+T and drag over anything to copy its text, even inside images, videos and scanned PDFs.
+group: everyday
+order: 7
+---
+
+Text in a screenshot, a paused video, a photo of a whiteboard or a locked PDF: if you can see it, you can copy it.
+
+<Demo name="ocr" />
+
+<Steps>
+  <Step title="Press Win+Ctrl+T">
+    The screen dims slightly and the cursor becomes a crosshair. You can also click **Copy text from screen** in the notch.
+  </Step>
+  <Step title="Drag a box over the text">Let go and PomeloO reads it with Windows' own text recognition.</Step>
+  <Step title="Paste it anywhere">The text is on the clipboard. A small notice tells you how many words were copied.</Step>
+</Steps>
+
+<Screenshot src="ocr-snip" alt="Dragging a box over text on the screen" />
+
+<Tip>
+  A QR code in the box? Its contents are copied too. And if you just copied an image, <Keys k="Win+Ctrl+T" /> reads
+  that image directly, without dragging.
+</Tip>
+
+## For files: Copy text and Searchable PDF
+
+For whole files, use the tools wheel (<Keys k="Ctrl" /> while dragging):
+
+- **Copy Text (OCR)** on a photo or PDF puts all its text on the clipboard. PDF pages that already have real text
+  are used as they are; scanned pages are read.
+- **Searchable PDF** adds an invisible text layer over scans and photos, so you can search, select and copy in any
+  PDF reader.
+
+<Note>
+  PomeloO reads the languages installed in Windows. To add one: Settings → Time & language → Language & region →
+  Add a language. Press <Keys k="Esc" /> to cancel a selection. The shortcut can be changed in Settings → Keyboard.
+</Note>
