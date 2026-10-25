@@ -36,12 +36,12 @@ export default async function Features({ params }: Props) {
           return (
             <section key={g.key} className="grid items-center gap-8 lg:grid-cols-2">
               <div className={i % 2 ? "lg:order-2" : ""}>
-                <h2 className="font-display text-3xl font-semibold">{g.title}</h2>
+                <h2 className="headline text-4xl">{g.title}</h2>
                 <p className="mt-3 text-lg text-muted">{g.body}</p>
                 <ul className="mt-6 space-y-2">
                   {related.map((slug) => (
                     <li key={slug}>
-                      <Link href={`/${lang}/guides/${slug}/`} className="inline-flex items-center gap-1.5 text-orange hover:underline">
+                      <Link href={`/${lang}/guides/${slug}/`} className="inline-flex items-center gap-1.5 text-accent hover:underline">
                         <ArrowRight className="size-4" aria-hidden /> {titles[slug] ?? slug}
                       </Link>
                     </li>
@@ -52,7 +52,7 @@ export default async function Features({ params }: Props) {
                 src={`/screens/${shot}.png`}
                 alt={g.title}
                 loading="lazy"
-                className="max-h-[28rem] w-auto justify-self-center rounded-2xl border border-line object-contain shadow-2xl"
+                className="card max-h-112 w-auto justify-self-center rounded-[18px] object-contain p-2"
               />
             </section>
           );

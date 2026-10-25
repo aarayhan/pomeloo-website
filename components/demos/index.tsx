@@ -43,7 +43,7 @@ export function Frame({
       <div
         role="img"
         aria-label={`${label}: ${captions.join(" → ")}`}
-        className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-[radial-gradient(120%_90%_at_20%_0%,#2a1d16_0%,#121214_55%,#0a0a0b_100%)] select-none"
+        className="relative aspect-[16/10] overflow-hidden rounded-[18px] border border-line bg-desk select-none"
       >
         <div aria-hidden className="absolute inset-0">
           {children}
@@ -52,8 +52,8 @@ export function Frame({
       <figcaption className="mt-3 flex items-center gap-3 text-sm">
         <ol className="flex flex-1 flex-wrap gap-x-4 gap-y-1" aria-hidden>
           {captions.map((c, i) => (
-            <li key={c} className={`transition-colors ${i === step ? "font-medium text-orange" : "text-muted"}`}>
-              <span className="mr-1 tabular-nums">{i + 1}.</span>
+            <li key={c} className={`flex items-center gap-1.5 transition-colors ${i === step ? "text-fg" : "text-muted"}`}>
+              <span className={`size-1.5 shrink-0 rounded-full transition-colors ${i === step ? "bg-tang" : "bg-line"}`} />
               {c}
             </li>
           ))}
@@ -77,7 +77,7 @@ export function Cursor({ x, y, grab = false }: { x: number; y: number; grab?: bo
   return (
     <motion.div className="absolute z-30" initial={false} animate={{ left: `${x}%`, top: `${y}%` }} transition={ease}>
       <motion.svg width="22" height="26" viewBox="0 0 22 26" animate={{ scale: grab ? 0.9 : 1 }} className="drop-shadow">
-        <path d="M2 2 L2 21 L7 16.5 L10.5 24 L14 22.5 L10.6 15 L17.5 15 Z" fill="#fff" stroke="#111" strokeWidth="1.5" />
+        <path d="M2 2 L2 21 L7 16.5 L10.5 24 L14 22.5 L10.6 15 L17.5 15 Z" fill="#111" stroke="#fff" strokeWidth="1.5" />
       </motion.svg>
     </motion.div>
   );
@@ -88,12 +88,13 @@ const TINT: Record<string, string> = {
   docx: "#2563eb", txt: "#a1a1aa",
 };
 
-export function FileIcon({ name, className = "" }: { name: string; className?: string }) {
+/** A document icon with its name. `onDark`: light lettering, for the black notch. */
+export function FileIcon({ name, className = "", onDark = false }: { name: string; className?: string; onDark?: boolean }) {
   const ext = name.split(".").pop() ?? "";
   return (
     <div className={`flex w-16 flex-col items-center gap-1 ${className}`}>
-      <div className="relative h-14 w-11 rounded-md bg-white shadow-md">
-        <div className="absolute top-0 right-0 size-3 rounded-bl-md bg-zinc-300" />
+      <div className="relative h-14 w-11 rounded-md border border-black/5 bg-white shadow-md">
+        <div className="absolute top-0 right-0 size-3 rounded-bl-md bg-zinc-200" />
         <div
           className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded px-1 text-[9px] font-bold text-white uppercase"
           style={{ background: TINT[ext] ?? "#71717a" }}
@@ -101,28 +102,25 @@ export function FileIcon({ name, className = "" }: { name: string; className?: s
           {ext}
         </div>
       </div>
-      <span className="max-w-20 truncate text-[11px] text-zinc-200">{name}</span>
+      <span className={`max-w-20 truncate text-[11px] ${onDark ? "text-zinc-200" : "text-fg"}`}>{name}</span>
     </div>
   );
 }
 
 export function Keycap({ children, down }: { children: React.ReactNode; down: boolean }) {
   return (
-    <motion.span
-      animate={{ y: down ? 2 : 0, boxShadow: down ? "0 1px 0 #52525b" : "0 4px 0 #52525b" }}
-      className={`inline-block rounded-lg border px-3 py-1.5 text-sm font-semibold ${down ? "border-orange bg-orange text-ink" : "border-zinc-600 bg-zinc-800 text-zinc-100"}`}
-    >
+    <span data-down={down || undefined} className="keycap inline-block rounded-lg px-3.5 py-1.5 text-sm font-medium">
       {children}
-    </motion.span>
+    </span>
   );
 }
 
 /** A plain Explorer-like window (title + body), positioned in percent. */
 export function Win({ title, className, children }: { title: string; className: string; children?: React.ReactNode }) {
   return (
-    <div className={`absolute rounded-xl border border-white/10 bg-zinc-900/90 shadow-2xl ${className}`}>
-      <div className="flex items-center gap-1.5 border-b border-white/5 px-3 py-2 text-[11px] text-zinc-400">
-        <span className="size-2 rounded-full bg-zinc-600" />
+    <div className={`absolute rounded-xl border border-line bg-card shadow-[0_10px_30px_-12px_rgba(0,0,0,0.25)] ${className}`}>
+      <div className="flex items-center gap-1.5 border-b border-line px-3 py-2 text-[11px] text-muted">
+        <span className="size-2 rounded-full bg-line" />
         {title}
       </div>
       {children}

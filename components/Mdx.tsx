@@ -44,7 +44,7 @@ export function Keys({ k }: { k: string }) {
       {k.split("+").map((key, i) => (
         <span key={i} className="inline-flex items-center gap-1">
           {i > 0 && <span className="text-muted">+</span>}
-          <kbd className="rounded-md border border-line border-b-2 bg-card px-1.5 py-0.5 font-sans text-[0.85em] font-semibold">
+          <kbd className="keycap rounded-md px-1.5 py-0.5 font-sans text-[0.85em] font-medium">
             {key}
           </kbd>
         </span>
@@ -58,7 +58,7 @@ export const Steps = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const Step = ({ title, children }: { title: string; children?: React.ReactNode }) => (
-  <li className="relative pl-12 [counter-increment:step] before:absolute before:top-0 before:left-0 before:grid before:size-8 before:place-items-center before:rounded-full before:bg-gradient before:text-sm before:font-bold before:text-ink before:content-[counter(step)]">
+  <li className="relative pl-12 [counter-increment:step] before:absolute before:top-0 before:left-0 before:grid before:size-8 before:place-items-center before:rounded-full before:border before:border-line before:bg-card before:text-sm before:font-medium before:text-fg before:content-[counter(step)]">
     <p className="m-0! pt-1 font-semibold">{title}</p>
     {children && <div className="text-muted [&>p]:my-1!">{children}</div>}
   </li>
@@ -72,7 +72,7 @@ const Callout = ({ icon, children, tone }: { icon: React.ReactNode; children: Re
 );
 
 export const Tip = ({ children }: { children: React.ReactNode }) => (
-  <Callout tone="border-orange/30 bg-orange/5" icon={<Lightbulb className="size-4.5 text-orange" aria-hidden />}>
+  <Callout tone="border-tang/25 bg-tang/5" icon={<Lightbulb className="size-4.5 text-accent" aria-hidden />}>
     {children}
   </Callout>
 );

@@ -20,12 +20,12 @@ export default async function Faq({ params }: Props) {
   return (
     <Container className="max-w-3xl">
       <PageHead title={t.faq.title} />
-      <div className="divide-y divide-line rounded-2xl border border-line bg-card">
+      <div className="card divide-y divide-line rounded-[18px]">
         {t.faq.items.map((x) => (
           <details key={x.q} className="group p-5">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
               {x.q}
-              <span className="text-orange transition group-open:rotate-45" aria-hidden>
+              <span className="text-accent transition group-open:rotate-45" aria-hidden>
                 +
               </span>
             </summary>

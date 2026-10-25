@@ -46,7 +46,7 @@ export default async function Guide({ params }: Props) {
                       <Link
                         href={`/${lang}/guides/${x.slug}/`}
                         aria-current={x.slug === slug ? "page" : undefined}
-                        className={`-ml-px block border-l py-1 pl-3 ${x.slug === slug ? "border-orange font-medium text-orange" : "border-transparent text-muted hover:text-fg"}`}
+                        className={`-ml-px block border-l py-1 pl-3 ${x.slug === slug ? "border-orange font-medium text-accent" : "border-transparent text-muted hover:text-fg"}`}
                       >
                         {x.title}
                       </Link>
@@ -61,13 +61,13 @@ export default async function Guide({ params }: Props) {
         <Link href={`/${lang}/guides/`} className="text-sm text-muted hover:text-fg" data-pagefind-ignore>
           ← {t.guidesPage.all}
         </Link>
-        <p className="mt-6 text-sm font-medium text-orange">{t.guidesPage.groups[g.group]}</p>
-        <h1 className="mt-1 font-display text-4xl font-semibold tracking-tight">{g.title}</h1>
+        <p className="mt-6 text-sm font-medium text-accent">{t.guidesPage.groups[g.group]}</p>
+        <h1 className="headline mt-1 text-5xl">{g.title}</h1>
         <p className="mt-3 text-lg text-muted">{g.description}</p>
         <div className="prose mt-8">{content}</div>
         <nav className="mt-16 grid gap-3 border-t border-line pt-8 sm:grid-cols-2" data-pagefind-ignore>
           {prev ? (
-            <Link href={`/${lang}/guides/${prev.slug}/`} className="rounded-xl border border-line p-4 hover:border-orange/50">
+            <Link href={`/${lang}/guides/${prev.slug}/`} className="card rounded-[18px] p-4 transition hover:border-muted/40">
               <span className="text-xs text-muted">← {t.guidesPage.prev}</span>
               <span className="mt-1 block font-medium">{prev.title}</span>
             </Link>
@@ -77,7 +77,7 @@ export default async function Guide({ params }: Props) {
           {next && (
             <Link
               href={`/${lang}/guides/${next.slug}/`}
-              className="rounded-xl border border-line p-4 text-right hover:border-orange/50"
+              className="card rounded-[18px] p-4 text-right transition hover:border-muted/40"
             >
               <span className="text-xs text-muted">{t.guidesPage.next} →</span>
               <span className="mt-1 block font-medium">{next.title}</span>

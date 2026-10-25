@@ -15,10 +15,15 @@ const id: typeof en = {
     tagline: "Seret file, ketuk tombol, pilih format.",
     sub: "Konverter dan kotak perkakas file yang cepat untuk Windows. Semuanya terjadi di PC kamu: tidak ada yang diunggah.",
     download: "Unduh untuk Windows",
-    free: "Gratis dan open source · Windows 10 dan 11",
+    free: "Gratis dan open source, untuk Windows 10 dan 11.",
     winget: "atau lewat winget",
     guides: "Lihat cara kerjanya",
   },
+  stats: [
+    ["Pilihan konversi", "Untuk foto, video, audio, dokumen, slide, dan arsip."],
+    ["Jenis file yang bisa dibuka", "Dari foto HEIC sampai buku EPUB."],
+    ["Alat file", "Kompres, potong, pangkas, gabung, ganti nama, dan lainnya."],
+  ],
   how: {
     title: "Tiga gerakan, file apa saja",
     steps: [

@@ -25,9 +25,9 @@ export default async function Formats({ params }: Props) {
       {kinds.map((kind) => (
         <section key={kind} className="mt-14">
           <h2 className="font-display text-2xl font-semibold">{t.kinds[kind] ?? kind}</h2>
-          <div className="mt-4 overflow-x-auto rounded-2xl border border-line">
+          <div className="card mt-4 overflow-x-auto rounded-[18px]">
             <table className="w-full min-w-[40rem] text-left text-sm">
-              <thead className="bg-card text-muted">
+              <thead className="font-display text-base text-muted">
                 <tr>
                   <th className="px-4 py-3 font-semibold">{t.formats.input}</th>
                   <th className="px-4 py-3 font-semibold">{t.formats.output}</th>
@@ -42,7 +42,7 @@ export default async function Formats({ params }: Props) {
                       <th scope="row" className="px-4 py-3 font-semibold uppercase">
                         {ext}
                       </th>
-                      <td className="px-4 py-3 uppercase">{f.to.join(" · ") || "–"}</td>
+                      <td className="px-4 py-3 uppercase">{f.to.join(", ") || "–"}</td>
                       <td className="px-4 py-3 text-muted">
                         {[...f.tools, ...f.tools_many].map((x) => tools[x] ?? x).join(", ") || "–"}
                       </td>

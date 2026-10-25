@@ -22,7 +22,7 @@ export default function Footer({ lang, t }: { lang: Lang; t: Dict }) {
     ],
   ];
   return (
-    <footer className="mt-24 border-t border-line py-12 text-sm" data-pagefind-ignore>
+    <footer className="mt-28 border-t border-line py-12 text-sm" data-pagefind-ignore>
       <Container className="grid gap-10 sm:grid-cols-[1.5fr_1fr_1fr_1fr]">
         <div>
           <Wordmark className="h-6" />

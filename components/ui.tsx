@@ -6,8 +6,8 @@ export const Container = ({ children, className = "" }: { children: React.ReactN
 
 export function PageHead({ title, sub }: { title: string; sub?: string }) {
   return (
-    <header className="pt-14 pb-8 sm:pt-20">
-      <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">{title}</h1>
+    <header className="pt-14 pb-10 sm:pt-20">
+      <h1 className="headline text-5xl sm:text-6xl">{title}</h1>
       {sub && <p className="mt-4 max-w-2xl text-lg text-muted">{sub}</p>}
     </header>
   );
@@ -22,16 +22,12 @@ export function ButtonLink({
   children: React.ReactNode;
   kind?: "primary" | "ghost";
 }) {
-  const cls =
-    kind === "primary"
-      ? "bg-gradient text-ink shadow-lg shadow-orange/20 hover:brightness-110"
-      : "border border-line bg-card hover:border-orange/60";
   const external = href.startsWith("http");
   return (
     <Link
       href={href}
       {...(external ? { rel: "noopener" } : {})}
-      className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-semibold transition ${cls}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium transition ${kind === "primary" ? "bg-fg text-card hover:opacity-85" : "card hover:border-muted/40"}`}
     >
       {children}
     </Link>
@@ -49,5 +45,5 @@ export function Wordmark({ className = "h-7" }: { className?: string }) {
 }
 
 export const Card = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`rounded-2xl border border-line bg-card p-6 ${className}`}>{children}</div>
+  <div className={`card rounded-[18px] p-6 ${className}`}>{children}</div>
 );

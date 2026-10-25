@@ -36,13 +36,13 @@ export default async function DownloadPage({ params }: Props) {
   return (
     <Container>
       <PageHead title={t.title} sub={t.sub} />
-      <p className="-mt-2 mb-8 text-sm text-muted">
-        {t.version} <strong className="text-fg">{dl.version}</strong>
-        {date && ` · ${t.released} ${date}`}
+      <p className="-mt-4 mb-8 text-sm text-muted">
+        {t.version} <strong className="font-medium text-fg">{dl.version}</strong>
+        {date && `, ${t.released} ${date}`}
       </p>
       <div className="grid gap-4 lg:grid-cols-3">
         <Card className="flex flex-col lg:col-span-2">
-          <Download className="size-7 text-orange" aria-hidden />
+          <Download className="size-7 text-accent" aria-hidden />
           <h2 className="mt-4 text-xl font-semibold">{t.installer}</h2>
           <p className="mt-1 flex-1 text-muted">{t.installerNote}</p>
           <div className="mt-5">
@@ -54,7 +54,7 @@ export default async function DownloadPage({ params }: Props) {
           <Sha a={dl.setup} label={t.sha} copy={t.copy} done={t.copied} />
         </Card>
         <Card className="flex flex-col">
-          <Package className="size-7 text-orange" aria-hidden />
+          <Package className="size-7 text-accent" aria-hidden />
           <h2 className="mt-4 text-xl font-semibold">{t.portable}</h2>
           <p className="mt-1 flex-1 text-muted">{t.portableNote}</p>
           <div className="mt-5">
@@ -67,10 +67,10 @@ export default async function DownloadPage({ params }: Props) {
       </div>
       <Card className="mt-4">
         <div className="flex items-center gap-3">
-          <Terminal className="size-6 text-orange" aria-hidden />
+          <Terminal className="size-6 text-accent" aria-hidden />
           <h2 className="text-xl font-semibold">{t.winget}</h2>
         </div>
-        <div className="mt-4 flex items-center gap-3 rounded-xl border border-line bg-bg px-4 py-3">
+        <div className="field mt-4 flex items-center gap-3 rounded-xl px-4 py-3">
           <code className="flex-1 truncate">winget install aarayhan.PomeloO</code>
           {winget && <CopyButton text="winget install aarayhan.PomeloO" label={t.copy} done={t.copied} />}
         </div>
@@ -78,14 +78,14 @@ export default async function DownloadPage({ params }: Props) {
       </Card>
       <Card className="mt-4 border-orange/30">
         <div className="flex items-center gap-3">
-          <ShieldAlert className="size-6 text-orange" aria-hidden />
+          <ShieldAlert className="size-6 text-accent" aria-hidden />
           <h2 className="text-xl font-semibold">{t.smartscreenTitle}</h2>
         </div>
         <p className="mt-3 text-muted">{t.smartscreen}</p>
       </Card>
       <div className="mt-8 flex flex-wrap gap-6 text-sm">
-        <Link href={`/${lang}/guides/getting-started/`} className="text-orange hover:underline">
-          {t.next} →
+        <Link href={`/${lang}/guides/getting-started/`} className="text-accent hover:underline">
+          {t.next}
         </Link>
         <Link href={LATEST_URL.replace("/latest", "")} className="text-muted hover:text-fg">
           {t.allReleases}

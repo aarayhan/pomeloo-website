@@ -1,6 +1,7 @@
 "use client";
 // Drag photo.heic, tap Shift, the convert wheel pops under the cursor, drop on PNG, photo.png appears.
 import { motion } from "motion/react";
+import { useId } from "react";
 import { Cursor, FileIcon, Frame, Keycap, Win, usePhases } from ".";
 
 const MS = [1300, 1300, 1000, 1100, 2200];
@@ -15,34 +16,51 @@ function sector(i: number, n: number, r0: number, r1: number) {
   return `M ${p(r1, s)} A ${r1} ${r1} 0 0 1 ${p(r1, e)} L ${p(r0, e)} A ${r0} ${r0} 0 0 0 ${p(r0, s)} Z`;
 }
 
+/** The wheel as a soft moulded object: pillowy sectors on a rim, the picked one in tangerine. Colours come from CSS vars. */
 export function WheelSvg({ hot, labels = LABELS, title = "Convert" }: { hot: number; labels?: string[]; title?: string }) {
   const n = labels.length;
+  const id = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
-    <svg viewBox="0 0 100 100" className="size-full drop-shadow-2xl">
-      <circle cx="50" cy="50" r="49.5" fill="#1c1c1e" stroke="#3f3f46" strokeWidth="0.6" />
+    <svg viewBox="0 0 100 100" className="size-full drop-shadow-xl">
+      <defs>
+        <filter id={`${id}s`} x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="0.7" stdDeviation="0.7" floodOpacity="0.18" />
+        </filter>
+        <linearGradient id={`${id}g`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#fff" stopOpacity="0.5" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="49.5" style={{ fill: "var(--wheel-rim)" }} />
       {labels.map((l, i) => {
         const t = ((i * 360) / n - 90) * (Math.PI / 180);
         return (
           <g key={l}>
-            <path d={sector(i, n, 19, 47)} fill={i === hot ? "#ff8a1e" : "#2a2a2d"} className="transition-colors duration-200" />
+            <path
+              d={sector(i, n, 20, 47)}
+              filter={`url(#${id}s)`}
+              style={{ fill: i === hot ? "#f35b28" : "var(--wheel-face)" }}
+              className="transition-[fill] duration-200"
+            />
+            <path d={sector(i, n, 20, 47)} fill={`url(#${id}g)`} />
             <text
-              x={50 + 33 * Math.cos(t)}
-              y={50 + 33 * Math.sin(t) + 1.6}
+              x={50 + 33.5 * Math.cos(t)}
+              y={50 + 33.5 * Math.sin(t) + 1.5}
               textAnchor="middle"
-              fontSize={l.length > 6 ? 3.6 : 4.6}
+              fontSize={l.length > 6 ? 3.4 : 4.3}
               fontWeight="600"
-              fill={i === hot ? "#1e1e1e" : "#e4e4e7"}
+              style={{ fill: i === hot ? "#fff" : "var(--wheel-ink)" }}
             >
               {l}
             </text>
           </g>
         );
       })}
-      <circle cx="50" cy="50" r="17" fill="#111113" />
-      <text x="50" y="49" textAnchor="middle" fontSize="4.8" fontWeight="700" fill="#f4f4f5">
+      <circle cx="50" cy="50" r="17" filter={`url(#${id}s)`} style={{ fill: "var(--wheel-face)" }} />
+      <text x="50" y="49" textAnchor="middle" fontSize="4.6" fontWeight="600" style={{ fill: "var(--wheel-ink)" }}>
         {title}
       </text>
-      <text x="50" y="55" textAnchor="middle" fontSize="3.4" fill="#a1a1aa">
+      <text x="50" y="55" textAnchor="middle" fontSize="3.3" fill="#8a8f89">
         1 file
       </text>
     </svg>

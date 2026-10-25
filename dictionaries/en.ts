@@ -12,10 +12,15 @@ const en = {
     tagline: "Drag a file, tap a key, pick a format.",
     sub: "A fast file converter and file toolbox for Windows. Everything happens on your PC: nothing is uploaded.",
     download: "Download for Windows",
-    free: "Free and open source · Windows 10 and 11",
+    free: "Free and open source, for Windows 10 and 11.",
     winget: "or with winget",
     guides: "See how it works",
   },
+  stats: [
+    ["Conversion options", "Across images, video, audio, documents, slides and archives."],
+    ["File types it opens", "From HEIC photos to EPUB books."],
+    ["File tools", "Compress, crop, trim, merge, rename and more."],
+  ],
   how: {
     title: "Three moves, any file",
     steps: [

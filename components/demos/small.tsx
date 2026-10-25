@@ -34,9 +34,9 @@ export function PhoneDemo({ captions, replayLabel, label }: P) {
           <motion.div className="w-[45%]" initial={false} animate={{ opacity: phase >= 1 ? 1 : 0.15 }}>
             <Qr />
           </motion.div>
-          <div className="flex-1 text-[11px] text-zinc-300">
-            <p className="font-semibold text-zinc-100">Sending 1 file</p>
-            <p className="mt-2 text-zinc-400">Scan with the phone camera (same Wi-Fi).</p>
+          <div className="flex-1 text-[11px] text-muted">
+            <p className="font-semibold text-fg">Sending 1 file</p>
+            <p className="mt-2">Scan with the phone camera (same Wi-Fi).</p>
           </div>
         </div>
       </Win>
@@ -77,9 +77,9 @@ export function OcrDemo({ captions, replayLabel, label }: P) {
     <Frame frameRef={ref} captions={captions} step={phase} replay={replay} replayLabel={replayLabel} label={label}>
       <Win title="Slides.pdf" className="top-[8%] left-[8%] h-[78%] w-[84%]">
         <div className="space-y-3 p-[5%]">
-          <div className="h-3 w-1/3 rounded bg-zinc-700" />
-          <p className="font-display text-[15px] font-semibold text-zinc-100 sm:text-xl">Meeting moved to Thursday 10:00</p>
-          <p className="text-[12px] text-zinc-400 sm:text-sm">Room 4B · bring the Q3 numbers</p>
+          <div className="h-3 w-1/3 rounded bg-line" />
+          <p className="text-[15px] font-semibold text-fg sm:text-xl">Meeting moved to Thursday 10:00</p>
+          <p className="text-[12px] text-muted sm:text-sm">Room 4B · bring the Q3 numbers</p>
           <div className="h-16 w-1/2 rounded-lg bg-gradient-to-br from-sky-700 to-indigo-800" />
         </div>
       </Win>
@@ -115,10 +115,10 @@ export function PasteDemo({ captions, replayLabel, label }: P) {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="absolute top-12 left-24 w-32 rounded-lg border border-white/10 bg-zinc-800 py-1 text-[11px] text-zinc-200 shadow-xl"
+              className="absolute top-12 left-24 w-32 rounded-lg border border-line bg-card py-1 text-[11px] text-fg shadow-xl"
             >
-              <p className="px-3 py-1 text-zinc-400">Save image as…</p>
-              <p className="bg-orange/90 px-3 py-1 font-semibold text-ink">Copy image</p>
+              <p className="px-3 py-1 text-muted">Save image as…</p>
+              <p className="bg-tang px-3 py-1 font-semibold text-white">Copy image</p>
             </motion.div>
           )}
         </div>
@@ -158,15 +158,15 @@ export function RecipeDemo({ captions, replayLabel, label }: P) {
               scale: phase === 0 ? 1 : 0.6,
             }}
             transition={{ delay: phase === 0 ? i * 0.35 : 0 }}
-            className="rounded-xl border border-white/10 bg-zinc-900 px-4 py-2 text-sm text-zinc-100"
+            className="rounded-xl border border-line bg-card px-4 py-2 text-sm text-fg shadow-sm"
           >
-            <span className="mr-2 text-orange">{i + 1}</span>
+            <span className="mr-2 text-tang">{i + 1}</span>
             {s}
           </motion.span>
         ))}
       </div>
       <motion.div
-        className="bg-gradient absolute top-[18%] left-1/2 -translate-x-1/2 rounded-xl px-5 py-2 text-sm font-semibold text-ink"
+        className="absolute top-[18%] left-1/2 -translate-x-1/2 rounded-xl bg-tang px-5 py-2 text-sm font-semibold text-white"
         initial={false}
         animate={{ opacity: phase === 1 ? 1 : 0, scale: phase === 1 ? 1 : 0.7 }}
       >

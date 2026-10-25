@@ -61,9 +61,9 @@ export default function NotchDemo({ captions, replayLabel, label }: { captions: 
                   ))}
                 </div>
                 <div className="mt-[5%] flex gap-4">
-                  <FileIcon name="photo.heic" />
-                  <FileIcon name="report.pdf" />
-                  <FileIcon name="notes.docx" />
+                  <FileIcon name="photo.heic" onDark />
+                  <FileIcon name="report.pdf" onDark />
+                  <FileIcon name="notes.docx" onDark />
                 </div>
                 <p className="mt-auto text-[10px] text-zinc-500">Drop files here to keep them handy · Shift+drag converts</p>
               </div>

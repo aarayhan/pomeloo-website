@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
       {children}
     </ThemeProvider>
   );
@@ -22,7 +22,7 @@ export function ThemeToggle({ label }: { label: string }) {
       aria-label={label}
       title={label}
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="grid size-9 place-items-center rounded-lg text-muted hover:bg-card hover:text-fg"
+      className="grid size-9 place-items-center rounded-lg text-muted hover:text-fg"
     >
       <Sun className="hidden size-4.5 dark:block" aria-hidden />
       <Moon className="size-4.5 dark:hidden" aria-hidden />
@@ -40,7 +40,7 @@ export function LangSwitch({ lang, label }: { lang: string; label: string }) {
       hrefLang={other}
       lang={other}
       title={label}
-      className="rounded-lg px-2 py-1.5 text-sm font-medium text-muted uppercase hover:bg-card hover:text-fg"
+      className="rounded-lg px-2 py-1.5 text-[15px] text-muted uppercase hover:text-fg"
     >
       <span className="sr-only">{label}</span>
       <span aria-hidden>{other}</span>
@@ -54,9 +54,9 @@ export function CopyButton({ text, label, done }: { text: string; label: string;
     <button
       type="button"
       onClick={() => navigator.clipboard.writeText(text).then(() => (setOk(true), setTimeout(() => setOk(false), 1500)))}
-      className="inline-flex shrink-0 items-center gap-1.5 rounded-md border border-line px-2.5 py-1 text-xs text-muted hover:text-fg"
+      className="card inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-medium text-muted hover:text-fg"
     >
-      {ok ? <Check className="size-3.5 text-orange" aria-hidden /> : <Copy className="size-3.5" aria-hidden />}
+      {ok ? <Check className="size-3.5 text-accent" aria-hidden /> : <Copy className="size-3.5" aria-hidden />}
       <span aria-live="polite">{ok ? done : label}</span>
     </button>
   );

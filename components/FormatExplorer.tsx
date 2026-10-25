@@ -7,9 +7,7 @@ import type { Dict } from "@/lib/i18n";
 const POPULAR = ["heic", "jpg", "png", "mp4", "mov", "mp3", "pdf", "docx", "pptx", "xlsx", "epub", "zip"];
 
 const Chip = ({ children, hot = false }: { children: React.ReactNode; hot?: boolean }) => (
-  <span
-    className={`rounded-lg border px-2.5 py-1 text-sm ${hot ? "border-orange/50 bg-orange/10 font-semibold uppercase" : "border-line bg-bg"}`}
-  >
+  <span className={`rounded-lg border px-2.5 py-1 text-sm ${hot ? "border-tang/30 bg-tang/8 font-medium uppercase" : "border-line bg-bg"}`}>
     {children}
   </span>
 );
@@ -27,12 +25,12 @@ export default function FormatExplorer({
   const key = ext.trim().toLowerCase().replace(/^\./, "");
   const f = formats[key];
   return (
-    <div className="rounded-3xl border border-line bg-card p-5 sm:p-8">
-      <label htmlFor="fmt" className="font-display text-2xl font-semibold sm:text-3xl">
+    <div className="card rounded-[18px] p-5 sm:p-8">
+      <label htmlFor="fmt" className="headline text-3xl sm:text-4xl">
         {t.title}
       </label>
       <p className="mt-2 text-muted">{t.sub}</p>
-      <div className="mt-5 flex flex-wrap items-center gap-2">
+      <div className="mt-6 flex flex-wrap items-center gap-2">
         <input
           id="fmt"
           list="fmt-list"
@@ -41,7 +39,7 @@ export default function FormatExplorer({
           placeholder={t.placeholder}
           autoComplete="off"
           spellCheck={false}
-          className="w-40 rounded-xl border border-line bg-bg px-4 py-2.5 font-semibold uppercase outline-none focus:border-orange"
+          className="field w-40 rounded-xl px-4 py-2.5 font-medium uppercase"
         />
         <datalist id="fmt-list">
           {Object.keys(formats).map((e) => (
@@ -54,20 +52,20 @@ export default function FormatExplorer({
             type="button"
             onClick={() => setExt(p)}
             aria-pressed={p === key}
-            className={`rounded-lg px-2.5 py-1.5 text-sm uppercase ${p === key ? "bg-gradient font-semibold text-ink" : "text-muted hover:text-fg"}`}
+            className={`rounded-full px-3 py-1.5 text-sm uppercase transition ${p === key ? "bg-fg font-medium text-card" : "text-muted hover:bg-bg hover:text-fg"}`}
           >
             {p}
           </button>
         ))}
       </div>
-      <div className="mt-6 min-h-40" aria-live="polite">
+      <div className="mt-6 min-h-40 border-t border-line pt-6" aria-live="polite">
         {!f ? (
           key && <p className="text-muted">{t.none}</p>
         ) : (
           <dl className="grid gap-5 md:grid-cols-[10rem_1fr]">
             {f.to.length > 0 && (
               <>
-                <dt className="pt-1 text-sm font-semibold text-muted">{t.converts}</dt>
+                <dt className="pt-1 text-sm font-medium text-muted">{t.converts}</dt>
                 <dd className="flex flex-wrap gap-2">
                   {f.to.map((x) => (
                     <Chip key={x} hot>
@@ -79,7 +77,7 @@ export default function FormatExplorer({
             )}
             {f.tools.length > 0 && (
               <>
-                <dt className="pt-1 text-sm font-semibold text-muted">{t.tools}</dt>
+                <dt className="pt-1 text-sm font-medium text-muted">{t.tools}</dt>
                 <dd className="flex flex-wrap gap-2">
                   {f.tools.map((x) => (
                     <Chip key={x}>{tools[x] ?? x}</Chip>
@@ -89,7 +87,7 @@ export default function FormatExplorer({
             )}
             {f.tools_many.length > 0 && (
               <>
-                <dt className="pt-1 text-sm font-semibold text-muted">{t.toolsMany}</dt>
+                <dt className="pt-1 text-sm font-medium text-muted">{t.toolsMany}</dt>
                 <dd className="flex flex-wrap gap-2">
                   {f.tools_many.map((x) => (
                     <Chip key={x}>{tools[x] ?? x}</Chip>

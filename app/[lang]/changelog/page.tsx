@@ -27,7 +27,7 @@ export default async function Changelog({ params }: Props) {
       <PageHead title={t.title} sub={t.sub} />
       {all.length === 0 && (
         <p>
-          <Link href={`${REPO_URL}/releases`} className="text-orange">
+          <Link href={`${REPO_URL}/releases`} className="text-accent">
             {t.none}
           </Link>
         </p>
@@ -35,8 +35,8 @@ export default async function Changelog({ params }: Props) {
       <ol className="space-y-12">
         {all.map((r, i) => (
           <li key={r.tag_name} className="border-l-2 border-line pl-6">
-            <h2 className="font-display text-2xl font-semibold">
-              <Link href={r.html_url} className="hover:text-orange">
+            <h2 className="headline text-3xl">
+              <Link href={r.html_url} className="hover:text-accent">
                 {r.name || r.tag_name}
               </Link>
             </h2>

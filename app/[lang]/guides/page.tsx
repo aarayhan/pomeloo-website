@@ -34,9 +34,9 @@ export default async function Guides({ params }: Props) {
                 <li key={g.slug}>
                   <Link
                     href={`/${lang}/guides/${g.slug}/`}
-                    className="block h-full rounded-2xl border border-line bg-card p-5 transition hover:border-orange/50"
+                    className="card block h-full rounded-[18px] p-5 transition hover:border-muted/40"
                   >
-                    <h3 className="font-semibold">{g.title}</h3>
+                    <h3 className="font-display text-lg font-semibold">{g.title}</h3>
                     <p className="mt-1.5 text-sm text-muted">{g.description}</p>
                   </Link>
                 </li>

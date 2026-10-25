@@ -1,14 +1,13 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter, Lexend } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Providers } from "@/components/client";
 import { SITE, alternates, dict, isLang, langs } from "@/lib/i18n";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend", display: "swap" });
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
 
 export const dynamicParams = false;
 export const generateStaticParams = () => langs.map((lang) => ({ lang }));
@@ -34,12 +33,12 @@ export default async function Layout({ children, params }: Props) {
   if (!isLang(lang)) notFound();
   const t = dict(lang);
   return (
-    <html lang={lang} suppressHydrationWarning className={`${inter.variable} ${lexend.variable}`}>
+    <html lang={lang} suppressHydrationWarning className={dmSans.variable}>
       <body className="flex min-h-dvh flex-col font-sans antialiased">
         <Providers>
           <a
             href="#main"
-            className="sr-only z-50 rounded-lg bg-orange px-4 py-2 text-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+            className="sr-only z-50 rounded-lg bg-fg px-4 py-2 text-card focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
           >
             {lang === "id" ? "Langsung ke isi" : "Skip to content"}
           </a>

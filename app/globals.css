@@ -2,35 +2,59 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* PomeloO brand: the logo's pink → orange → amber, on near-black (dark, the default) or cream (light) */
+/* Quiet light-grey page, flat white cards with hairlines, one tangerine accent. The only objects with depth
+   are the ones PomeloO actually puts on screen: the convert wheel and the keys you tap. */
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-lexend), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-weight-semibold: 550;
   --color-pink: #f0526a;
   --color-orange: #ff8a1e;
   --color-amber: #ffb020;
-  --color-cream: #fdf0dc;
+  --color-tang: #f35b28;
   --color-ink: #1e1e1e;
   --color-bg: var(--bg);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
   --color-card: var(--card);
   --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-desk: var(--desk);
 }
 
 :root {
-  --bg: #fffaf3;
-  --fg: #1e1e1e;
-  --muted: #5f5a54;
+  --bg: #f4f4f4;
   --card: #ffffff;
-  --line: #ecdfcc;
+  --line: #e6e6e6;
+  --desk: #ececec; /* the "screen" behind the demos */
+  --fg: #282b29;
+  --muted: #6b706a;
+  --accent: #c8461a; /* tangerine, dark enough for small text */
+  /* the keycap: warm plastic, a darker wall underneath */
+  --cap-top: #f1ede6;
+  --cap-face: #ddd7cc;
+  --cap-wall: #b9b1a3;
+  --cap-ink: #4a4740;
+  /* the convert wheel */
+  --wheel-rim: #e2e2e2;
+  --wheel-face: #f8f8f8;
+  --wheel-ink: #282b29;
 }
 .dark {
-  --bg: #0b0b0c;
-  --fg: #f4f4f5;
-  --muted: #a1a1aa;
-  --card: #151517;
-  --line: #27272a;
+  --bg: #141414;
+  --card: #1c1c1c;
+  --line: #2b2b2b;
+  --desk: #101010;
+  --fg: #ededed;
+  --muted: #9b9f99;
+  --accent: #ff7a45;
+  --cap-top: #4b4b4b;
+  --cap-face: #3a3a3a;
+  --cap-wall: #1d1d1d;
+  --cap-ink: #e6e6e6;
+  --wheel-rim: #2a2a2a;
+  --wheel-face: #3a3a3a;
+  --wheel-ink: #ededed;
 }
 
 html {
@@ -47,19 +71,58 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-orange);
+  outline: 2px solid var(--color-tang);
   outline-offset: 2px;
   border-radius: 6px;
 }
 
-@utility text-gradient {
-  background: linear-gradient(90deg, var(--color-pink), var(--color-orange) 55%, var(--color-amber));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* headings: medium weight, set tight */
+@utility headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.07;
 }
-@utility bg-gradient {
-  background: linear-gradient(90deg, var(--color-pink), var(--color-orange) 55%, var(--color-amber));
+@utility card {
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+/* a sunken grey field inside a card: inputs, commands */
+@utility field {
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+/* a real key: lighter top face, darker wall below, travels when pressed */
+@utility keycap {
+  color: var(--cap-ink);
+  background: linear-gradient(180deg, var(--cap-top), var(--cap-face));
+  border: 1px solid var(--cap-wall);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.45),
+    0 3px 0 var(--cap-wall),
+    0 6px 10px -3px rgb(0 0 0 / 0.2);
+  transition:
+    transform 90ms,
+    box-shadow 90ms;
+  &:active,
+  &[aria-pressed="true"],
+  &[data-down] {
+    transform: translateY(2px);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.35),
+      0 1px 0 var(--cap-wall),
+      0 2px 4px -1px rgb(0 0 0 / 0.2);
+  }
+}
+
+/* Pagefind's search box, in the same palette */
+.pagefind-ui {
+  --pagefind-ui-primary: var(--accent);
+  --pagefind-ui-text: var(--fg);
+  --pagefind-ui-background: var(--card);
+  --pagefind-ui-border: var(--line);
+  --pagefind-ui-tag: var(--bg);
+  --pagefind-ui-font: var(--font-sans);
 }
 
 /* guide prose (MDX): direct children only, so demos and components inside keep their own styles */
@@ -67,15 +130,16 @@ body {
   line-height: 1.75;
 }
 .prose > h2 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
   margin: 2.5rem 0 0.75rem;
   scroll-margin-top: 5rem;
 }
 .prose > h3 {
-  font-weight: 600;
+  font-weight: 550;
   font-size: 1.15rem;
+  letter-spacing: -0.02em;
   margin: 1.75rem 0 0.5rem;
 }
 .prose > p,
@@ -92,13 +156,13 @@ body {
   padding-left: 1.25rem;
 }
 .prose a {
-  color: var(--color-orange);
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 .prose code {
   font-size: 0.9em;
-  background: var(--card);
+  background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 0.1rem 0.35rem;
@@ -119,5 +183,5 @@ body {
   vertical-align: top;
 }
 .prose strong {
-  font-weight: 600;
+  font-weight: 550;
 }
