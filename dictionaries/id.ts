@@ -155,7 +155,7 @@ const id: typeof en = {
       { q: "Apakah PomeloO gratis?", a: "Ya. Gratis dan open source dengan lisensi GNU AGPL-3.0. Tanpa iklan, tanpa masa coba, tanpa akun." },
       {
         q: "Apakah file saya diunggah ke suatu tempat?",
-        a: "Tidak. Semua konversi berjalan di PC kamu. PomeloO hanya memakai internet untuk dua hal yang kamu mulai sendiri: unduhan sekali untuk mesin slide, dan Send to Phone, yang hanya lewat Wi-Fi kamu sendiri.",
+        a: "Tidak. Semua konversi berjalan di PC kamu. PomeloO memakai internet hanya untuk tiga hal: unduhan sekali untuk mesin slide dan Send to Phone (keduanya kamu mulai sendiri; Send to Phone hanya lewat Wi-Fi kamu), serta cek update sekali sehari yang membaca versi terbaru dari GitHub. Tidak ada data tentang kamu atau file kamu yang dikirim.",
       },
       {
         q: "Windows bilang “Windows protected your PC”. Amankah?",
@@ -195,8 +195,9 @@ const id: typeof en = {
         h: "Aplikasinya",
         p: [
           "PomeloO tidak punya telemetri, akun, maupun unggahan. File kamu dikonversi di PC kamu sendiri.",
-          "Internet hanya dipakai dalam dua hal, keduanya kamu mulai sendiri: unduhan sekali untuk salinan pribadi LibreOffice (hanya jika kamu mengonversi slide dan tidak ada aplikasi Office terpasang; dari The Document Foundation, dicek checksum-nya), dan Send to Phone.",
+          "Internet hanya dipakai dalam tiga hal: unduhan sekali untuk salinan pribadi LibreOffice (hanya jika kamu mengonversi slide dan tidak ada aplikasi Office terpasang; dari The Document Foundation, dicek checksum-nya), Send to Phone, dan cek update.",
           "Send to Phone hanya melayani file di Wi-Fi kamu sendiri, di balik tautan acak, dan hanya selama kode QR-nya terbuka.",
+          "Cek update membaca rilis terbaru dari GitHub sekali sehari. Kalau ada versi baru, PomeloO mengunduh installer-nya, mencocokkan SHA-256-nya dengan yang dipublikasikan GitHub, lalu memasangnya saat PC sedang tidak kamu pakai. Tidak ada data tentang kamu atau file kamu yang dikirim. Matikan di Settings → Update automatically.",
           "Riwayat clipboard di notch hanya ada di memori, tidak pernah ditulis ke disk, dan melewati apa pun yang ditandai privat oleh password manager. Notch tidak pernah terlihat di screenshot atau saat berbagi layar.",
           "Untuk mengenali gerakan seret-lalu-ketuk dan Ctrl+V, PomeloO hanya melihat apakah tombol-tombol itu sedang ditekan. Apa pun yang kamu ketik tidak direkam.",
         ],

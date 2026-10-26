@@ -152,7 +152,7 @@ const en = {
       { q: "Is PomeloO free?", a: "Yes. It's free and open source under the GNU AGPL-3.0 license. No ads, no trial, no account." },
       {
         q: "Are my files uploaded anywhere?",
-        a: "No. Every conversion runs on your PC. PomeloO only touches the network for two things you start yourself: the one-time slide engine download, and Send to Phone, which stays on your own Wi-Fi.",
+        a: "No. Every conversion runs on your PC. PomeloO uses the network for just three things: the one-time slide engine download and Send to Phone (both started by you; Send to Phone stays on your own Wi-Fi), and a once-a-day update check that reads the latest version from GitHub. Nothing about you or your files is sent.",
       },
       {
         q: "Windows says “Windows protected your PC”. Is it safe?",
@@ -192,8 +192,9 @@ const en = {
         h: "The app",
         p: [
           "PomeloO has no telemetry, no accounts and no uploads. Your files are converted on your own PC.",
-          "It uses the network in only two cases, both started by you: the one-time download of a private LibreOffice copy (only if you convert slides and no Office suite is installed; from The Document Foundation, checksum-verified), and Send to Phone.",
+          "It uses the network in only three cases: the one-time download of a private LibreOffice copy (only if you convert slides and no Office suite is installed; from The Document Foundation, checksum-verified), Send to Phone, and the update check.",
           "Send to Phone serves files on your own Wi-Fi only, behind a random link, and only while its QR code is open.",
+          "The update check reads the latest release from GitHub once a day. When there's a newer version, PomeloO downloads its installer, checks its SHA-256 against the one GitHub publishes, and installs it while you're not using the PC. Nothing about you or your files is sent. Turn it off in Settings → Update automatically.",
           "The notch's clipboard history stays in memory, is never written to disk, and skips anything a password manager marks as private. The notch never shows in screenshots or screen sharing.",
           "To spot the drag-and-tap and Ctrl+V gestures, PomeloO watches whether those keys are down. Nothing you type is recorded.",
         ],
