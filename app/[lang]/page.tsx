@@ -3,9 +3,10 @@ import Link from "next/link";
 import { CopyButton } from "@/components/client";
 import WheelDemo from "@/components/demos/wheel";
 import FormatExplorer from "@/components/FormatExplorer";
+import JsonLd from "@/components/JsonLd";
 import { ButtonLink, Container } from "@/components/ui";
 import { LATEST_URL, catalog, latest, mb, wingetReady } from "@/lib/github";
-import { dict, pageLang } from "@/lib/i18n";
+import { SITE, dict, pageLang } from "@/lib/i18n";
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const lang = await pageLang(params);
@@ -14,8 +15,25 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const tools = Object.fromEntries(Object.entries(cat.tools).map(([k, v]) => [k, v.name]));
   const formats = Object.values(cat.formats);
   const counts = [formats.reduce((n, f) => n + f.to.length, 0), formats.length, Object.keys(cat.tools).length];
+  const app = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "PomeloO",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Windows 10, Windows 11",
+    description: t.meta.description,
+    softwareVersion: dl.version,
+    url: `${SITE}/${lang}/`,
+    downloadUrl: dl.setup?.browser_download_url ?? LATEST_URL,
+    license: "https://www.gnu.org/licenses/agpl-3.0.html",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    inLanguage: ["en", "id"],
+    sameAs: ["https://github.com/aarayhan/PomeloO"],
+  };
   return (
     <>
+      <JsonLd data={app} />
       <Container className="pt-8 pb-20 text-center sm:pt-10">
         <div className="mx-auto max-w-xl text-left">
           <WheelDemo captions={t.demo.wheel} replayLabel={t.demo.replay} label="PomeloO" />

@@ -3,9 +3,10 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import remarkGfm from "remark-gfm";
 import { mdxComponents } from "@/components/Mdx";
+import JsonLd from "@/components/JsonLd";
 import { Container } from "@/components/ui";
 import { guideSource, guides } from "@/lib/guides";
-import { type Lang, alternates, dict, langs } from "@/lib/i18n";
+import { SITE, type Lang, alternates, dict, langs } from "@/lib/i18n";
 
 type Props = { params: Promise<{ lang: string; slug: string }> };
 
@@ -31,8 +32,30 @@ export default async function Guide({ params }: Props) {
     options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
   });
   const groups = [...new Set(all.map((x) => x.group))];
+  const url = `${SITE}/${lang}/guides/${slug}/`;
+  const ld = [
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      headline: g.title,
+      description: g.description,
+      inLanguage: lang,
+      mainEntityOfPage: url,
+      author: { "@type": "Organization", name: "PomeloO" },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { name: "PomeloO", item: `${SITE}/${lang}/` },
+        { name: t.guidesPage.title, item: `${SITE}/${lang}/guides/` },
+        { name: g.title, item: url },
+      ].map((x, n) => ({ "@type": "ListItem", position: n + 1, ...x })),
+    },
+  ];
   return (
     <Container className="grid gap-12 pt-10 lg:grid-cols-[15rem_1fr]">
+      <JsonLd data={ld} />
       <nav aria-label={t.guidesPage.title} className="hidden lg:block" data-pagefind-ignore>
         <div className="sticky top-24 max-h-[calc(100dvh-7rem)] space-y-6 overflow-y-auto pb-8 text-sm">
           {groups.map((group) => (

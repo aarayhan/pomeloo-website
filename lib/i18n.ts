@@ -18,6 +18,6 @@ export const SITE = process.env.URL ?? "https://pomeloo.netlify.app";
 export function alternates(lang: Lang, path = "/") {
   return {
     canonical: `${SITE}/${lang}${path}`,
-    languages: Object.fromEntries(langs.map((l) => [l, `${SITE}/${l}${path}`])),
+    languages: { ...Object.fromEntries(langs.map((l) => [l, `${SITE}/${l}${path}`])), "x-default": `${SITE}/en${path}` },
   };
 }

@@ -5,6 +5,20 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Real redirects for the root (the static export can only meta-refresh). Indonesian browsers land on /id/.
+[[redirects]]
+  from = "/"
+  to = "/id/"
+  status = 302
+  force = true
+  conditions = {Language = ["id", "ms"]}
+
+[[redirects]]
+  from = "/"
+  to = "/en/"
+  status = 302
+  force = true
+
 [[headers]]
   for = "/_next/static/*"
   [headers.values]
